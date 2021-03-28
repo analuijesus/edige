@@ -5,11 +5,12 @@ namespace Edige.Dao
 {
     public class AutorDao
     {
+        private IList<Autor> Autores { get; set; }
+
         public AutorDao()
         {
             Autores = new List<Autor>();
         }
-        public IList<Autor> Autores { get; set; }
 
         public void CadastraAutor(Autor autor)
         {
