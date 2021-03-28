@@ -6,7 +6,11 @@ namespace Edige.Dao
 {
     public class CategoriaDao
     {
-        public ISet<Categoria> Categorias { get; set; }
+        private IList<Categoria> Categorias { get; set; }
+        public CategoriaDao()
+        {
+            Categorias = new List<Categoria>();
+        }
 
         public void CadastraAutor(Categoria categoria)
         {
