@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Edige.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Edige.Dao
 {
     public class VendaDao
     {
+        private IList<Venda> Vendas { get; set; }
+
+        public VendaDao()
+        {
+            Vendas = new List<<Venda>();
+        }
     }
 }
