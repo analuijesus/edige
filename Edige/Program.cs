@@ -8,21 +8,29 @@ namespace Edige
     {
         static void Main(string[] args)
         {
-            Autor autor = new Autor("Ana", "ana@alura.com", "Dev");
-            Categoria categoria = new Categoria("Tecnologia");
-            Livro livro = new Livro("Java", "123456789", "POO", "POO", 236, autor, categoria, 59.90);
-
-            Console.WriteLine();
-            Console.WriteLine(autor);
-            Console.WriteLine();
-            Console.WriteLine(categoria);
-            Console.WriteLine();
-            Console.WriteLine(livro);
-
-            
-
+            TestaAutorDao();
 
             Console.ReadLine();
         }
-    }
+
+        public static void TestaAutorDao()
+        {
+            //Teste padrão
+            Autor autor3 = new Autor("Ana", "ana@alura.com", "Dev");
+            Autor autor4 = new Autor("Ana", "Luiza@alura.com", "Dev");
+
+            AutorDao autorDao = new AutorDao();
+            autorDao.CadastraAutor(autor3);
+            autorDao.CadastraAutor(autor4);
+
+            //Teste de email já cadastrado
+            Autor autor1 = new Autor("Luiza", "ana@alura.com", "Adm");
+            Autor autor2 = new Autor("Ana", "ana@alura.com", "Dev");
+
+            //Exceção acontece!
+            autorDao.CadastraAutor(autor1);
+            autorDao.CadastraAutor(autor2);
+
+        }
+    }   
 }
