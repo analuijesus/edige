@@ -31,6 +31,18 @@ namespace Edige.Model
             }
         }
 
+        public override bool Equals(object obj)
+        {
+            Categoria outroCategoria = obj as Categoria;
+
+            if(Nome == outroCategoria.Nome)
+            {
+                return true;
+                throw new Exception("Categoria já existente! \nInforme uma nova categoria!");
+            }
+            return false;
+        }
+
         public override string ToString()
         {
             return $"Categoria: {Nome}";

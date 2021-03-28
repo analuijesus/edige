@@ -7,12 +7,13 @@ namespace Edige.Dao
     public class CategoriaDao
     {
         private IList<Categoria> Categorias { get; set; }
+
         public CategoriaDao()
         {
             Categorias = new List<Categoria>();
         }
 
-        public void CadastraAutor(Categoria categoria)
+        public void CadastraCategoria(Categoria categoria)
         {
             if (Categorias.Contains(categoria))
             {
@@ -21,7 +22,7 @@ namespace Edige.Dao
 
             Categorias.Add(categoria);
 
-            Console.WriteLine("Autor cadastrado com sucesso!");
+            Console.WriteLine("Categoria cadastrada com sucesso!");
         }
     }
 }
