@@ -8,11 +8,18 @@ namespace Edige.Model
 {
     public class Venda
     {
-        private Livro livro;
-        private int quantidadeVenda;
+        private Livro _livro;        
+        private int _quantidadeVenda;
+        private double _precoVenda;
+        private string _padronizacaoNomeLivro;
 
         public Venda(Livro livro, int quantidadeVenda)
         {
+            if (quantidadeVenda >= 2)
+            {
+                PrecoVenda = livro.Preco * quantidadeVenda;
+            }
+            
             Livro = livro;
             QuantidadeVenda = quantidadeVenda;
 
@@ -20,23 +27,26 @@ namespace Edige.Model
             Console.WriteLine($"Livro vendido em: {dataRegistro}");
         }
 
-        public Livro Livro { get => livro; set => livro = value; }
+        public Livro Livro { get => _livro; set => _livro = value; }
         public int QuantidadeVenda 
         { 
-            get => quantidadeVenda;
+            get => _quantidadeVenda;
             set 
             {
                 if (value < 1)
                 {
                     throw new Exception("A quantidade de livro(s) a ser(em) vendido(s) precisar ser acima de 1!");
                 }
-                quantidadeVenda = value; 
+                                
+                _quantidadeVenda = value; 
             } 
         }
 
+        public double PrecoVenda { get => _precoVenda; set => _precoVenda = value; }
+
         public override string ToString()
         {
-            return $"Livros vendidos: {Livro} \nQuantidade de livros vendidos: {QuantidadeVenda}";
+            return $"Livros vendidos: {Livro} \nQuantidade de livros vendidos: {QuantidadeVenda} \nValor da venda: {PrecoVenda}" ;
         }
     }
 }

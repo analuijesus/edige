@@ -8,7 +8,7 @@ namespace Edige
     {
         static void Main(string[] args)
         {
-            TestaCategoriaDao();
+            TestaVenda();
             //TestaAutorDao();
 
             Console.ReadLine();
@@ -17,12 +17,12 @@ namespace Edige
         public static void TestaAutorDao()
         {
             //Teste padrão
-            //Autor autor3 = new Autor("Ana", "ana@alura.com", "Dev");
-            //Autor autor4 = new Autor("Ana", "Luiza@alura.com", "Dev");
+            Autor autor3 = new Autor("Ana", "ana@alura.com", "Dev");
+            Autor autor4 = new Autor("Ana", "Luiza@alura.com", "Dev");
 
             AutorDao autorDao = new AutorDao();
-            //autorDao.CadastraAutor(autor3);
-            //autorDao.CadastraAutor(autor4);
+            autorDao.CadastraAutor(autor3);
+            autorDao.CadastraAutor(autor4);
 
             //Teste de email já cadastrado
             Autor autor1 = new Autor("Luiza", "ana@alura.com", "Adm");
@@ -46,10 +46,16 @@ namespace Edige
             Categoria categoria3 = new Categoria("Romance");
             categoriaDao.CadastraCategoria(categoria2);
             categoriaDao.CadastraCategoria(categoria3);
+        }
 
+        public static void TestaVenda()
+        {
+            Autor autor = new Autor("Ana", "ana@alura.com", "Dev");
+            Categoria categoria = new Categoria("Tecnologia");
+            Livro livro = new Livro("Java", "123456789105", "Java OO", "OO", 186, autor, categoria, 59.90);
 
-
-
+            Venda venda = new Venda(livro, 4);
+            Console.WriteLine(venda);           
         }
     }
 }
